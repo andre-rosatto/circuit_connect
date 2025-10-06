@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlhkqd1hud7ad"]
+
+[ext_resource type="Script" uid="uid://cvoal1ibrhdmx" path="res://scenes/gui/control_anim_scale/control_anim_scale.gd" id="1_7imtp"]
+
+[node name="ControlAnimScale" type="Node"]
+script = ExtResource("1_7imtp")

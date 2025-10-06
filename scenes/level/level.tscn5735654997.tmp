@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5y4pbp6xhtip"]
+
+[ext_resource type="Script" uid="uid://vvy48vb60a2t" path="res://scenes/level/level.gd" id="1_h3e3j"]
+[ext_resource type="Texture2D" uid="uid://dxrkqjnxqsrgt" path="res://sprites/level_menu.webp" id="2_hnne4"]
+[ext_resource type="Texture2D" uid="uid://1k07m5dcwc81" path="res://sprites/confetti.webp" id="2_qkmgm"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qkmgm"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(360, -50, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+color = Color(1, 0, 0, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="Level" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h3e3j")
+
+[node name="InfoBar" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="LevelInfo" type="Label" parent="InfoBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Random 3x3"
+vertical_alignment = 1
+
+[node name="LevelMenuButton" type="TextureButton" parent="InfoBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_hnne4")
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(0, 125)
+
+[node name="BoardSlots" type="Node2D" parent="Board"]
+unique_name_in_owner = true
+
+[node name="Connections" type="Node2D" parent="Board"]
+unique_name_in_owner = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+z_index = 4
+position = Vector2(360, 0)
+emitting = false
+amount = 200
+texture = ExtResource("2_qkmgm")
+lifetime = 10.0
+visibility_rect = Rect2(-360, 0, 720, 1280)
+process_material = SubResource("ParticleProcessMaterial_qkmgm")
+
+[connection signal="pressed" from="InfoBar/LevelMenuButton" to="." method="_on_level_menu_button_pressed"]

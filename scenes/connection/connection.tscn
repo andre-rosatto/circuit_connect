@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cck2qw68xy8go"]
+
+[ext_resource type="Texture2D" uid="uid://c2ibejhe7b6ry" path="res://scenes/connection/sprites/out.webp" id="1_3xxaq"]
+[ext_resource type="Script" uid="uid://lq5f25oss0ly" path="res://scenes/connection/connection.gd" id="1_hr4ua"]
+[ext_resource type="Texture2D" uid="uid://cuwctpp5wknda" path="res://scenes/connection/sprites/in.webp" id="2_hr4ua"]
+[ext_resource type="PackedScene" uid="uid://5kwqpu1d7v0e" path="res://scenes/led/led.tscn" id="3_2p8e7"]
+[ext_resource type="Texture2D" uid="uid://lbg5s0gy4rc2" path="res://scenes/connection/sprites/wires.webp" id="3_weg4q"]
+
+[node name="Connection" type="Node2D"]
+script = ExtResource("1_hr4ua")
+
+[node name="Out" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -7)
+texture = ExtResource("1_3xxaq")
+
+[node name="OutLed" parent="Out" instance=ExtResource("3_2p8e7")]
+unique_name_in_owner = true
+position = Vector2(0, -32.5)
+
+[node name="In" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 2)
+texture = ExtResource("2_hr4ua")
+
+[node name="InLed" parent="In" instance=ExtResource("3_2p8e7")]
+unique_name_in_owner = true
+
+[node name="Wires" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("3_weg4q")

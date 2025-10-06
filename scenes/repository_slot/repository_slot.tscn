@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://wdgmheby1awf"]
+
+[ext_resource type="Texture2D" uid="uid://bb2s7treq8q3u" path="res://scenes/repository_slot/sprites/slot.webp" id="1_n1m5m"]
+[ext_resource type="PackedScene" uid="uid://d15ymg1eg62f4" path="res://scenes/chip/chip.tscn" id="2_7jw8k"]
+[ext_resource type="Script" uid="uid://dit2s0dxsmkv0" path="res://scenes/repository_slot/repository_slot.gd" id="2_asm0f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sytrn"]
+texture = ExtResource("1_n1m5m")
+
+[node name="RepositorySlot" type="Panel"]
+custom_minimum_size = Vector2(100, 100)
+theme_override_styles/panel = SubResource("StyleBoxTexture_sytrn")
+script = ExtResource("2_asm0f")
+
+[node name="Chip" parent="." instance=ExtResource("2_7jw8k")]
+visible = false
+position = Vector2(50, 50)

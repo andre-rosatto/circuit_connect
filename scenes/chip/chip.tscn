@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://d15ymg1eg62f4"]
+
+[ext_resource type="Script" uid="uid://cipa4i2xxu2vf" path="res://scenes/chip/chip.gd" id="1_u2ubd"]
+[ext_resource type="Texture2D" uid="uid://d1vg1o67pvutp" path="res://scenes/chip/sprites/chip_out.webp" id="2_74ewh"]
+[ext_resource type="Texture2D" uid="uid://c2vp1m8ryiwxm" path="res://scenes/chip/sprites/chip_highlight_out.webp" id="3_nhfe3"]
+[ext_resource type="Texture2D" uid="uid://b6gsjt0le1al5" path="res://scenes/chip/sprites/chip_in.webp" id="4_7nc1g"]
+[ext_resource type="Texture2D" uid="uid://b33qtsej6lpw6" path="res://scenes/chip/sprites/chip_highlight_in.webp" id="5_uxm24"]
+
+[node name="Chip" type="Node2D"]
+script = ExtResource("1_u2ubd")
+
+[node name="Out" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 0.4, 0.4, 1)
+texture = ExtResource("2_74ewh")
+
+[node name="OutHighlight" type="Sprite2D" parent="."]
+texture = ExtResource("3_nhfe3")
+
+[node name="In" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 0.4, 0.4, 1)
+texture = ExtResource("4_7nc1g")
+
+[node name="InHighlight" type="Sprite2D" parent="."]
+texture = ExtResource("5_uxm24")

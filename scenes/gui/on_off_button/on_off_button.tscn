@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://mvhsems4vfsq"]
+
+[ext_resource type="Theme" uid="uid://dg5237lwii1u0" path="res://theme.tres" id="1_lrig1"]
+[ext_resource type="Script" uid="uid://bjr6dgb4lgays" path="res://scenes/gui/on_off_button/on_off_button.gd" id="1_m060s"]
+[ext_resource type="PackedScene" uid="uid://5kwqpu1d7v0e" path="res://scenes/led/led.tscn" id="3_tqde0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tqde0"]
+
+[node name="OnOffButton" type="Button"]
+custom_minimum_size = Vector2(200, 50)
+script = ExtResource("1_m060s")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_lrig1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tqde0")
+
+[node name="Led" parent="MarginContainer/HBoxContainer/TextureRect" instance=ExtResource("3_tqde0")]
+unique_name_in_owner = true
+centered = false

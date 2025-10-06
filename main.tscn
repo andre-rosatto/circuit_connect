@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2joumnpjl0m0"]
+
+[ext_resource type="PackedScene" uid="uid://c5y4pbp6xhtip" path="res://scenes/level/level.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://d2krhcxwydsnj" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://ch05sa6c6jc0y" path="res://scenes/gui/main_menu/main_menu.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dcgh83o3taedb" path="res://scenes/gui/fader/fader.tscn" id="4_1bvp3"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_h2yge")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00392157, 0.160784, 0.0901961, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Fader" parent="CanvasLayer" instance=ExtResource("4_1bvp3")]
+unique_name_in_owner = true
+z_index = 1000
+z_as_relative = false
+mouse_filter = 2
+
+[node name="Level" parent="." instance=ExtResource("1_0xm2m")]
+unique_name_in_owner = true
+size_flags_vertical = 3
+
+[node name="MainMenu" parent="." instance=ExtResource("2_h2yge")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="level_quit" from="Level" to="." method="_on_level_level_quit"]

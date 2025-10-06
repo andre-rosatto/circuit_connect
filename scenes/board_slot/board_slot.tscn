@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi866et2cwhth"]
+
+[ext_resource type="Script" uid="uid://gicc34o0e8n" path="res://scenes/board_slot/board_slot.gd" id="1_waaj8"]
+[ext_resource type="Texture2D" uid="uid://c5ow14syt628s" path="res://scenes/board_slot/sprites/slot.webp" id="2_uv1r6"]
+[ext_resource type="PackedScene" uid="uid://d15ymg1eg62f4" path="res://scenes/chip/chip.tscn" id="3_ahfrx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahfrx"]
+size = Vector2(104, 104)
+
+[node name="BoardSlot" type="Area2D"]
+script = ExtResource("1_waaj8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ahfrx")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_uv1r6")
+
+[node name="Chip" parent="." instance=ExtResource("3_ahfrx")]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

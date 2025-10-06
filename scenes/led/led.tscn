@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://5kwqpu1d7v0e"]
+
+[ext_resource type="Texture2D" uid="uid://rjmlvw60an0y" path="res://scenes/led/sprites/leds.webp" id="1_vs784"]
+[ext_resource type="Script" uid="uid://c1bv01clcdl72" path="res://scenes/led/led.gd" id="2_vs784"]
+
+[node name="Led" type="Sprite2D"]
+texture = ExtResource("1_vs784")
+hframes = 3
+script = ExtResource("2_vs784")
