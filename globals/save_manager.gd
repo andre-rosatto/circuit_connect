@@ -38,7 +38,7 @@ func save_game(level: Level) -> void:
 	}
 	if level.is_daily:
 		var datetime: Dictionary = Time.get_datetime_dict_from_system()
-		data.data = [datetime.day, datetime.month, datetime.year]
+		data.date = [datetime.day, datetime.month, datetime.year]
 	file.store_string(JSON.stringify(data))
 
 
