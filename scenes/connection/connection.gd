@@ -1,7 +1,5 @@
 class_name Connection extends Node2D
 
-signal connection_completed
-
 var out_value: bool = false:
 	set = _set_out_value
 var in_value: bool = false:
@@ -60,5 +58,3 @@ func update_leds() -> void:
 
 func _on_board_slot_chip_changed() -> void:
 	update_leds()
-	if self.is_completed:
-		connection_completed.emit()

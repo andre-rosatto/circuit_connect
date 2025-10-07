@@ -136,7 +136,7 @@ func make_game() -> void:
 			))
 	print("level chips: ", level_chip_values)
 	shuffled_chip_values = level_chip_values.duplicate()
-	shuffled_chip_values.shuffle()
+	#shuffled_chip_values.shuffle()
 
 
 func restart_game() -> void:
@@ -172,7 +172,6 @@ func make_connections() -> void:
 			new_connection.in_value = level_chip_values[i].y == level_chip_values[i + 1].y
 			new_connection.position = grid_pos * Consts.BOARD_SLOT_GAP + Vector2i(Consts.BOARD_SLOT_GAP / 2.0, 0)
 			new_connection.board_slots = [get_board_slot_at_grid_pos(grid_pos), get_board_slot_at_grid_pos(grid_pos + Vector2i(1, 0))]
-			new_connection.connection_completed.connect(_on_connection_completed)
 			connections.add_child(new_connection)
 		# vertical connections
 		if grid_pos.y < level_size.y - 1:
@@ -182,7 +181,6 @@ func make_connections() -> void:
 			new_connection.position = grid_pos * Consts.BOARD_SLOT_GAP + Vector2i(0, Consts.BOARD_SLOT_GAP / 2.0)
 			new_connection.board_slots = [get_board_slot_at_grid_pos(grid_pos), get_board_slot_at_grid_pos(grid_pos + Vector2i(0, 1))]
 			new_connection.is_vertical = true
-			new_connection.connection_completed.connect(_on_connection_completed)
 			connections.add_child(new_connection)
 
 
@@ -225,12 +223,6 @@ func index_to_grid_position(idx: int) -> Vector2i:
 func end_game():
 	grabber.enabled = false
 	self.is_game_over = true
-	SaveManager.save_game(self)
-
-
-func _on_connection_completed() -> void:
-	if connections.get_children().all(func(connection: Connection): return connection.is_completed):
-		end_game()
 
 
 func _on_level_menu_button_pressed() -> void:
@@ -256,4 +248,6 @@ func _on_level_menu_quit_pressed() -> void:
 
 
 func _on_grabber_move_completed() -> void:
+	if connections.get_children().all(func(connection: Connection): return connection.is_completed):
+		end_game()
 	SaveManager.save_game(self)
