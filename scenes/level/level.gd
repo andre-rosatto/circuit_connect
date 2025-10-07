@@ -210,7 +210,7 @@ func center_board() -> void:
 
 
 func get_slots() -> Array:
-	return board_slots.get_children() + repository_slots.get_children()
+	return (board_slots.get_children() + repository_slots.get_children()).filter(func(slot): return not slot.is_queued_for_deletion())
 
 
 func index_to_grid_position(idx: int) -> Vector2i:
