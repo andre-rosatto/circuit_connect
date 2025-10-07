@@ -116,7 +116,8 @@ func start_randomizer() -> Dictionary:
 		var day: String = str(datetime.day)
 		var month: String = str(datetime.month).pad_zeros(2)
 		var year: String = str(datetime.year)
-		seed(int(day + month + year))
+		var game_size: String = str(level_size.x) + str(level_size.y)
+		seed(int(day + month + year + game_size))
 		return datetime
 
 
