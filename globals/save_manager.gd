@@ -30,23 +30,15 @@ func save_game(level: Level) -> void:
 	var board_chips: Array = vector_array_to_int_array(get_board_chips(level))
 	var repository_chips: Array = vector_array_to_int_array(get_repository_chips(level))
 	var file: FileAccess = FileAccess.open("user://daily_3x" + str(level.level_size.y) + ".txt", FileAccess.WRITE) if level.is_daily else FileAccess.open("user://random_3x" + str(level.level_size.y) + ".txt", FileAccess.WRITE)
-	var data: Dictionary
+	var data: Dictionary = {
+		level_chips = vector_array_to_int_array(level.level_chip_values),
+		board = board_chips,
+		repository = repository_chips,
+		is_complete = level.is_game_over
+	}
 	if level.is_daily:
 		var datetime: Dictionary = Time.get_datetime_dict_from_system()
-		data = {
-			level_chips = vector_array_to_int_array(level.shuffled_chip_values),
-			board = board_chips,
-			repository = repository_chips,
-			is_complete = level.is_game_over,
-			date = [datetime.day, datetime.month, datetime.year]
-		}
-	else:
-		data = {
-			level_chips = vector_array_to_int_array(level.shuffled_chip_values),
-			board = board_chips,
-			repository = repository_chips,
-			is_complete = level.is_game_over
-		}
+		data.data = [datetime.day, datetime.month, datetime.year]
 	file.store_string(JSON.stringify(data))
 
 
