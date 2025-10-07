@@ -134,9 +134,9 @@ func make_game() -> void:
 					randi_range(0, Consts.COLORS.size() - 1),
 					randi_range(0, Consts.COLORS.size() - 1)
 			))
-	print("level chips: ", level_chip_values)
+	#print("level chips: ", level_chip_values)
 	shuffled_chip_values = level_chip_values.duplicate()
-	#shuffled_chip_values.shuffle()
+	shuffled_chip_values.shuffle()
 
 
 func restart_game() -> void:

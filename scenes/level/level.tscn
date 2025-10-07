@@ -46,7 +46,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 25
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_bottom = 75
 
 [node name="InfoBar" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -71,7 +71,7 @@ texture_normal = ExtResource("2_hnne4")
 
 [node name="Board" type="Node2D" parent="MarginContainer"]
 unique_name_in_owner = true
-position = Vector2(0, 150)
+position = Vector2(0, 175)
 
 [node name="BoardSlots" type="Node2D" parent="MarginContainer/Board"]
 unique_name_in_owner = true
