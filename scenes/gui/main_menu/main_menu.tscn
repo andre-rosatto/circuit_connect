@@ -46,7 +46,7 @@ layout_mode = 2
 
 [node name="New3x3" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/NewMenuGroup/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("1_7fxqr")
 text = "3x3"
@@ -55,7 +55,7 @@ text = "3x3"
 
 [node name="New3x4" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/NewMenuGroup/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("1_7fxqr")
 text = "3x4"
@@ -72,6 +72,7 @@ layout_mode = 2
 
 [node name="Continue3x3" parent="MarginContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 label_text = "3x3"
 
@@ -79,6 +80,7 @@ label_text = "3x3"
 
 [node name="Continue3x4" parent="MarginContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 label_text = "3x4"
 
@@ -94,6 +96,7 @@ layout_mode = 2
 
 [node name="Daily3x3" parent="MarginContainer/VBoxContainer/VBoxContainer/DailyMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 label_text = "3x3"
 
@@ -101,6 +104,7 @@ label_text = "3x3"
 
 [node name="Daily3x4" parent="MarginContainer/VBoxContainer/VBoxContainer/DailyMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 label_text = "3x4"
 

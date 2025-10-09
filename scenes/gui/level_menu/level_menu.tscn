@@ -101,6 +101,30 @@ tracks/7/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VBoxContainer/New:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VBoxContainer/New:theme_override_constants/margin_right")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_8mbyh"]
 resource_name = "fade_in"
@@ -187,7 +211,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [200, 0]
+"values": [-200, 0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -200,6 +224,30 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VBoxContainer/New:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VBoxContainer/New:theme_override_constants/margin_right")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [200, 0]
 }
 
 [sub_resource type="Animation" id="Animation_qx15n"]
@@ -287,7 +335,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [0, 200]
+"values": [0, -200]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -300,6 +348,30 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VBoxContainer/New:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VBoxContainer/New:theme_override_constants/margin_right")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0, 200]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jqcn2"]
@@ -335,6 +407,7 @@ offset_top = -49.5
 offset_bottom = 49.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 25
 
 [node name="Continue" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -343,7 +416,7 @@ theme_override_constants/margin_right = 200
 
 [node name="ContinueButton" type="Button" parent="VBoxContainer/Continue"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 50)
+custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 text = "Continue"
 
@@ -356,11 +429,28 @@ theme_override_constants/margin_right = 0
 
 [node name="RestartButton" type="Button" parent="VBoxContainer/Restart"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 50)
+custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 text = "Restart Level"
 
 [node name="ControlAnimScale" parent="VBoxContainer/Restart/RestartButton" instance=ExtResource("3_8mbyh")]
+
+[node name="New" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_right = 0
+
+[node name="NewButton" type="Button" parent="VBoxContainer/New"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+text = "New"
+
+[node name="ControlAnimScale" parent="VBoxContainer/New/NewButton" instance=ExtResource("3_8mbyh")]
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
 
 [node name="Quit" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -369,7 +459,7 @@ theme_override_constants/margin_right = 0
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/Quit"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 50)
+custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 text = "Quit"
 
@@ -378,4 +468,5 @@ text = "Quit"
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="VBoxContainer/Continue/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Restart/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/New/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit/QuitButton" to="." method="_on_quit_button_pressed"]

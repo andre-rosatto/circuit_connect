@@ -3,6 +3,7 @@ class_name LevelMenu extends ColorRect
 signal quit_pressed
 signal restart_pressed
 signal menu_closed
+signal new_game_pressed
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -39,3 +40,10 @@ func _on_restart_button_pressed() -> void:
 		fade_out()
 		await animation_player.animation_finished
 		restart_pressed.emit()
+
+
+func _on_new_button_pressed() -> void:
+	if not animation_player.is_playing():
+		fade_out()
+		await animation_player.animation_finished
+		new_game_pressed.emit()

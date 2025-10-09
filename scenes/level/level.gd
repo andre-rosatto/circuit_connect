@@ -251,3 +251,7 @@ func _on_grabber_move_completed() -> void:
 	if connections.get_children().all(func(connection: Connection): return connection.is_completed):
 		end_game()
 	SaveManager.save_game(self)
+
+
+func _on_level_menu_new_game_pressed() -> void:
+	start_new(level_size, is_daily)

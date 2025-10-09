@@ -113,5 +113,6 @@ layout_mode = 1
 [connection signal="pressed" from="MarginContainer/InfoBar/LevelMenuButton" to="." method="_on_level_menu_button_pressed"]
 [connection signal="move_completed" from="Grabber" to="." method="_on_grabber_move_completed"]
 [connection signal="menu_closed" from="LevelMenu" to="." method="_on_level_menu_menu_closed"]
+[connection signal="new_game_pressed" from="LevelMenu" to="." method="_on_level_menu_new_game_pressed"]
 [connection signal="quit_pressed" from="LevelMenu" to="." method="_on_level_menu_quit_pressed"]
 [connection signal="restart_pressed" from="LevelMenu" to="." method="_on_level_menu_restart_pressed"]
