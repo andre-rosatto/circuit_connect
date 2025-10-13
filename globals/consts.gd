@@ -4,9 +4,7 @@ const COLORS: Array[Color] = [
 	Color(1.0, 0.4, 0.4),
 	Color(0.4, 1.0, 0.4),
 	Color(0.4, 0.4, 1.0),
-	Color(1.0, 1.0, 0.4),
-	#Color(1.0, 0.25, 1.0),
-	#Color(0.25, 1.0, 1.0)
+	Color(1.0, 1.0, 0.8),
 ]
 
 const BOARD_SLOT_GAP: int = 225
