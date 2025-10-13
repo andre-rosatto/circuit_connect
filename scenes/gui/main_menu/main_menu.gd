@@ -12,6 +12,7 @@ var enabled: bool = true
 @onready var daily_3x3: OnOffButton = %Daily3x3
 @onready var daily_3x4: OnOffButton = %Daily3x4
 @onready var fader: Fader = %Fader
+@onready var help: Control = %Help
 
 
 func _ready() -> void:
@@ -79,3 +80,7 @@ func _on_daily_pressed(game_height: int) -> void:
 	fader.fade_out()
 	await fader.fade_finished
 	game_continued.emit(Vector2i(3, game_height), true)
+
+
+func _on_how_to_play_button_pressed() -> void:
+	help.show_help()

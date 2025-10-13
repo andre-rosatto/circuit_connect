@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ch05sa6c6jc0y"]
+[gd_scene load_steps=8 format=3 uid="uid://ch05sa6c6jc0y"]
 
 [ext_resource type="Theme" uid="uid://dg5237lwii1u0" path="res://theme.tres" id="1_7fxqr"]
 [ext_resource type="Script" uid="uid://xgme7hq5svnx" path="res://scenes/gui/main_menu/main_menu.gd" id="1_cqwbc"]
@@ -6,106 +6,125 @@
 [ext_resource type="Texture2D" uid="uid://dnl5ptgth7wvx" path="res://sprites/logo.webp" id="3_c02x0"]
 [ext_resource type="PackedScene" uid="uid://fgmo2y57r88w" path="res://scenes/gui/menu_group/menu_group.tscn" id="4_o6kcl"]
 [ext_resource type="PackedScene" uid="uid://mvhsems4vfsq" path="res://scenes/gui/on_off_button/on_off_button.tscn" id="6_c02x0"]
+[ext_resource type="PackedScene" uid="uid://botmejcpj5n16" path="res://scenes/gui/help/help.tscn" id="7_8u377"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_cqwbc")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="MenuContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 300
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("1_7fxqr")
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MenuContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("3_c02x0")
 stretch_mode = 3
 
-[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="Separator" type="Control" parent="MenuContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="NewMenuGroup" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_o6kcl")]
+[node name="NewMenuGroup" parent="MenuContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_o6kcl")]
 layout_mode = 2
 size_flags_horizontal = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/NewMenuGroup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/VBoxContainer/VBoxContainer/NewMenuGroup"]
 layout_mode = 2
 
-[node name="New3x3" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/NewMenuGroup/VBoxContainer"]
+[node name="New3x3" type="Button" parent="MenuContainer/VBoxContainer/VBoxContainer/NewMenuGroup/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("1_7fxqr")
 text = "3x3"
 
-[node name="ControlAnimScale" parent="MarginContainer/VBoxContainer/VBoxContainer/NewMenuGroup/VBoxContainer/New3x3" instance=ExtResource("2_dioda")]
+[node name="ControlAnimScale" parent="MenuContainer/VBoxContainer/VBoxContainer/NewMenuGroup/VBoxContainer/New3x3" instance=ExtResource("2_dioda")]
 
-[node name="New3x4" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/NewMenuGroup/VBoxContainer"]
+[node name="New3x4" type="Button" parent="MenuContainer/VBoxContainer/VBoxContainer/NewMenuGroup/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("1_7fxqr")
 text = "3x4"
 
-[node name="ControlAnimScale" parent="MarginContainer/VBoxContainer/VBoxContainer/NewMenuGroup/VBoxContainer/New3x4" instance=ExtResource("2_dioda")]
+[node name="ControlAnimScale" parent="MenuContainer/VBoxContainer/VBoxContainer/NewMenuGroup/VBoxContainer/New3x4" instance=ExtResource("2_dioda")]
 
-[node name="ContinueMenuGroup" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_o6kcl")]
+[node name="ContinueMenuGroup" parent="MenuContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_o6kcl")]
 layout_mode = 2
 size_flags_horizontal = 1
 type = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup"]
 layout_mode = 2
 
-[node name="Continue3x3" parent="MarginContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
+[node name="Continue3x3" parent="MenuContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 label_text = "3x3"
 
-[node name="ControlAnimScale" parent="MarginContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup/VBoxContainer/Continue3x3" instance=ExtResource("2_dioda")]
+[node name="ControlAnimScale" parent="MenuContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup/VBoxContainer/Continue3x3" instance=ExtResource("2_dioda")]
 
-[node name="Continue3x4" parent="MarginContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
+[node name="Continue3x4" parent="MenuContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 label_text = "3x4"
 
-[node name="ControlAnimScale" parent="MarginContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup/VBoxContainer/Continue3x4" instance=ExtResource("2_dioda")]
+[node name="ControlAnimScale" parent="MenuContainer/VBoxContainer/VBoxContainer/ContinueMenuGroup/VBoxContainer/Continue3x4" instance=ExtResource("2_dioda")]
 
-[node name="DailyMenuGroup" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_o6kcl")]
+[node name="DailyMenuGroup" parent="MenuContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_o6kcl")]
 layout_mode = 2
 size_flags_horizontal = 1
 type = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/DailyMenuGroup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/VBoxContainer/VBoxContainer/DailyMenuGroup"]
 layout_mode = 2
 
-[node name="Daily3x3" parent="MarginContainer/VBoxContainer/VBoxContainer/DailyMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
+[node name="Daily3x3" parent="MenuContainer/VBoxContainer/VBoxContainer/DailyMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 label_text = "3x3"
 
-[node name="ControlAnimScale" parent="MarginContainer/VBoxContainer/VBoxContainer/DailyMenuGroup/VBoxContainer/Daily3x3" instance=ExtResource("2_dioda")]
+[node name="ControlAnimScale" parent="MenuContainer/VBoxContainer/VBoxContainer/DailyMenuGroup/VBoxContainer/Daily3x3" instance=ExtResource("2_dioda")]
 
-[node name="Daily3x4" parent="MarginContainer/VBoxContainer/VBoxContainer/DailyMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
+[node name="Daily3x4" parent="MenuContainer/VBoxContainer/VBoxContainer/DailyMenuGroup/VBoxContainer" instance=ExtResource("6_c02x0")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 label_text = "3x4"
 
-[node name="ControlAnimScale" parent="MarginContainer/VBoxContainer/VBoxContainer/DailyMenuGroup/VBoxContainer/Daily3x4" instance=ExtResource("2_dioda")]
+[node name="ControlAnimScale" parent="MenuContainer/VBoxContainer/VBoxContainer/DailyMenuGroup/VBoxContainer/Daily3x4" instance=ExtResource("2_dioda")]
+
+[node name="Separator2" type="Control" parent="MenuContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="HowToPlayButton" type="Button" parent="MenuContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_7fxqr")
+text = "How To Play"
+
+[node name="Help" parent="." instance=ExtResource("7_8u377")]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="MenuContainer/VBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]

@@ -31,6 +31,5 @@ size_flags_vertical = 3
 
 [node name="MainMenu" parent="." instance=ExtResource("2_h2yge")]
 unique_name_in_owner = true
-visible = false
 
 [connection signal="level_quit" from="Level" to="." method="_on_level_level_quit"]
